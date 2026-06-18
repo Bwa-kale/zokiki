@@ -124,7 +124,7 @@
 
   <script>
     // ══════════════════════════════════════════
-    // DATA CORE (EXPANDED TO INCLUDE NEW DRILLS)
+    // DATA CORE (EXPANDED WITH 200 NEW ENTRIES)
     // ══════════════════════════════════════════
     const VERBS = {
       ser: {
@@ -139,7 +139,21 @@
               ['Él <em>es</em> ingeniero de software y trabaja remoto.','He is a software engineer and works remotely.'],
               ['Nosotros <em>somos</em> un equipo muy disciplinado.','We are a very disciplined team.'],
               ['Yo <em>soy</em> el responsable de la toma de decisiones finales.','I am the one responsible for final decision-making.'],
-              ['El valor real <em>es</em> el conocimiento que adquieres.','The real value is the knowledge you acquire.']
+              ['El valor real <em>es</em> el conocimiento que adquieres.','The real value is the knowledge you acquire.'],
+              ['Yo <em>soy</em> consultor independiente y manejo mis propios tiempos.','I am an independent consultant and I manage my own schedule.'],
+              ['¿Quién <em>es</em> el encargado de la infraestructura en la nube?','Who is the person in charge of cloud infrastructure?'],
+              ['Ella <em>es</em> analista de datos y optimiza los embudos de conversión.','She is a data analyst and optimizes conversion funnels.'],
+              ['Nosotros <em>somos</em> fundadores de esta plataforma digital.','We are founders of this digital platform.'],
+              ['Ellos <em>somos</em> los inversores principales de la ronda semilla.','They are the lead investors of the seed round.'],
+              ['¿Tú <em>eres</em> el desarrollador que escribió este script de automatización?','Are you the developer who wrote this automation script?'],
+              ['Yo no <em>soy</em> amante del riesgo innecesario, prefiero datos claros.','I am not a fan of unnecessary risk, I prefer clear data.'],
+              ['Esta aplicación <em>es</em> mi proyecto paralelo favorito.','This application is my favorite side project.'],
+              ['¿De qué país <em>es</em> tu socio comercial en este momento?','What country is your business partner from right now?'],
+              ['Nosotros <em>somos</em> responsables del mantenimiento de la base de datos.','We are responsible for database maintenance.'],
+              ['¿Vosotros <em>sois</em> los encargados del soporte técnico técnico?','Are you guys the ones in charge of technical support?'],
+              ['Ellas <em>serán</em> las nuevas diseñadoras de la interfaz de usuario.','They will be the new user interface designers.'],
+              ['Yo <em>soy</em> muy meticuloso con la seguridad de mis llaves API.','I am very meticulous with the security of my API keys.'],
+              ['Este lenguaje <em>es</em> la base de todo mi ecosistema de desarrollo.','This language is the foundation of my entire development ecosystem.']
             ]
           },
           s2: {
@@ -148,7 +162,23 @@
               ['Esta estrategia <em>es</em> para el largo plazo, no para hoy.','This strategy is for the long term, not for today.'],
               ['El coche de mi hermano <em>es</em> negro.','My brother\'s car is black.'],
               ['La situación <em>es</em> un poco compleja de explicar.','The situation is a bit complex to explain.'],
-              ['¿<em>Es</em> este el camino correcto para el proyecto?','Is this the correct path for the project?']
+              ['¿<em>Es</em> este el camino correcto para el proyecto?','Is this the correct path for the project?'],
+              ['La arquitectura de este sistema <em>es</em> sumamente robusta.','The architecture of this system is extremely robust.'],
+              ['El diseño de la interfaz de usuario <em>es</em> minimalista y oscuro.','The UI design is minimalist and dark.'],
+              ['¿<em>Es</em> seguro almacenar las credenciales en este archivo?','Is it safe to store credentials in this file?'],
+              ['Los resultados de la simulación <em>es</em> consistentes con la teoría.','The simulation results are consistent with the theory.'],
+              ['Nuestra principal ventaja competitiva <em>es</em> la velocidad de ejecución.','Our main competitive advantage is execution speed.'],
+              ['El código fuente de este módulo <em>es</em> abierto al público.','The source code of this module is open to the public.'],
+              ['¿El acceso a este servidor corporativo <em>es</em> privado?','Is access to this corporate server private?'],
+              ['La solución propuesta <em>es</em> elegante pero requiere mucho cómputo.','The proposed solution is elegant but requires heavy computing.'],
+              ['Mis objetivos financieros <em>son</em> muy claros y ambiciosos.','My financial goals are very clear and ambitious.'],
+              ['La base de datos original <em>es</em> demasiado grande para este servidor.','The original database is too big for this server.'],
+              ['¿<em>Es</em> costosa la suscripción mensual de esta herramienta?','Is the monthly subscription for this tool expensive?'],
+              ['Esta línea de comandos <em>es</em> muy útil para automatizaciones rápidas.','This command line is very useful for quick automations.'],
+              ['La documentación original <em>es</em> confusa para los principiantes.','The original documentation is confusing for beginners.'],
+              ['¿De qué material <em>es</em> el chasis de tu scooter eléctrico?','What material is the chassis of your electric scooter?'],
+              ['Este error de sintaxis <em>es</em> común cuando olvidas los corchetes.','This syntax error is common when you forget square brackets.'],
+              ['El rendimiento actual del algoritmo <em>es</em> óptimo.','The current performance of the algorithm is optimal.']
             ]
           },
           s3: {
@@ -157,7 +187,23 @@
               ['¿Qué hora <em>es</em>? Ahora <em>es</em> la una de la tarde.','What time is it? Right now it is one in the afternoon.'],
               ['Hoy <em>es</em> lunes y tengo mucho trabajo pendiente.','Today is Monday and I have a lot of pending work.'],
               ['¿Cuánto <em>es</em> en total? <em>Son</em> veinte dólares.','How much is it in total? It is twenty dollars.'],
-              ['La reunión de inversores <em>es</em> en la sala principal.','The investors\' meeting is in the main room.']
+              ['La reunión de inversores <em>es</em> en la sala principal.','The investors\' meeting is in the main room.'],
+              ['¿Cuándo <em>es</em> el despliegue oficial de la nueva versión?','When is the official deployment of the new version?'],
+              ['Mañana <em>es</em> el último día para entregar el reporte financiero.','Tomorrow is the last day to submit the financial report.'],
+              ['El costo de la transacción bancaria <em>es</em> despreciable.','The cost of the bank transaction is negligible.'],
+              ['La conferencia de desarrollo de software <em>es</em> en línea este año.','The software development conference is online this year.'],
+              ['¿Qué día de la semana <em>es</em> tu presentación importante?','What day of the week is your important presentation?'],
+              ['El próximo lanzamiento de código <em>es</em> a medianoche.','The next code release is at midnight.'],
+              ['¿Cuánto <em>es</em> la tarifa por el uso de la API externa?','How much is the fee for using the external API?'],
+              ['La llamada de sincronización semanal <em>es</em> todos los viernes.','The weekly sync call is every Friday.'],
+              ['Ayer <em>fue</em> un día histórico para el mercado financiero.','Yesterday was a historic day for the financial market.'],
+              ['¿Cuándo <em>es</em> la auditoría interna de los sistemas de seguridad?','When is the internal audit of safety systems?'],
+              ['El evento principal <em>es</em> en el centro de convenciones de Brooklyn.','The main event is at the convention center in Brooklyn.'],
+              ['Esta semana <em>es</em> crucial para cerrar el acuerdo comercial.','This week is crucial to close the commercial agreement.'],
+              ['¿A qué hora <em>es</em> la apertura del mercado financiero de Nueva York?','What time is the opening of the New York stock market?'],
+              ['El cobro del dividendo trimestral <em>es</em> el próximo mes.','The quarterly dividend payment is next month.'],
+              ['Hoy <em>es</em> un buen momento para auditar las bases de datos.','Today is a good time to audit the databases.'],
+              ['El plazo de entrega de la documentación de soporte <em>es</em> mañana.','The deadline for submitting support documentation is tomorrow.']
             ]
           }
         }
@@ -172,7 +218,23 @@
               ['Yo <em>estoy</em> en mi oficina en este momento.','I am in my office right now.'],
               ['¿Dónde <em>estás</em>? Estoy afuera del edificio.','Where are you? I am outside the building.'],
               ['La documentación técnica ya <em>está</em> archivada en el repositorio.','The technical documentation is already archived in the repository.'],
-              ['Nosotros <em>estamos</em> cerca de la estación de metro.','We are near the subway station.']
+              ['Nosotros <em>estamos</em> cerca de la estación de metro.','We are near the subway station.'],
+              ['¿Dónde <em>está</em> guardado el archivo de configuración del sistema?','Where is the system configuration file saved?'],
+              ['Los servidores de base de datos <em>están</em> en la nube de Virginia.','The database servers are in the Virginia cloud.'],
+              ['Yo <em>estoy</em> atrapado en el tráfico de Brooklyn con mi Vespa.','I am stuck in Brooklyn traffic with my Vespa.'],
+              ['¿Tus archivos locales <em>están</em> sincronizados con la rama principal?','Are your local files synced with the main branch?'],
+              ['El script de Python <em>está</em> ubicado en la carpeta de automatizaciones.','The Python script is located in the automations folder.'],
+              ['Nosotros <em>estamos</em> alojados en un hotel céntrico durante el viaje.','We are staying in a central hotel during the trip.'],
+              ['¿<em>Estás</em> en tu escritorio o trabajas desde tu teléfono móvil?','Are you at your desk or working from your mobile phone?'],
+              ['La terminal de comandos <em>está</em> abierta en la segunda pantalla.','The command terminal is open on the second screen.'],
+              ['Nuestros scripts de prueba <em>están</em> en el entorno de desarrollo.','Our test scripts are in the development environment.'],
+              ['¿Dónde <em>están</em> las llaves de seguridad de respaldo?','Where are the backup security keys?'],
+              ['La oficina central de la corporación <em>está</em> en Manhattan.','The central office of the corporation is in Manhattan.'],
+              ['Yo ya <em>estoy</em> conectado al servidor privado virtual.','I am already connected to the virtual private server.'],
+              ['El panel de control visual <em>está</em> disponible en esta dirección IP.','The visual dashboard is available at this IP address.'],
+              ['Tus configuraciones personalizadas <em>están</em> guardadas en la caché.','Your customized settings are saved in the cache.'],
+              ['¿<em>Estás</em> lejos de la red wifi de alta velocidad?','Are you far from the high-speed Wi-Fi network?'],
+              ['El repositorio de código abierto <em>está</em> listo para producción.','The open-source repository is ready for production.']
             ]
           },
           s2: {
@@ -181,7 +243,23 @@
               ['La comida ya <em>está</em> lista, podemos cenar.','The food is already ready, we can eat dinner.'],
               ['¿<em>Estás</em> listo para ejecutar la siguiente fase?','Are you ready to execute the next phase?'],
               ['Hoy <em>estoy</em> un poco cansado por el viaje.','Today I am a little tired from the trip.'],
-              ['El mercado <em>está</em> cambiando rápidamente en este momento.','The market is changing rapidly right now.']
+              ['El mercado <em>está</em> cambiando rápidamente en este momento.','The market is changing rapidly right now.'],
+              ['El servidor web <em>está</em> caído por mantenimiento técnico.','The web server is down for technical maintenance.'],
+              ['Mis notas diarias de progreso <em>están</em> muy desorganizadas hoy.','My daily progress notes are very disorganized today.'],
+              ['¿La base de datos de producción <em>está</em> asegurada correctamente?','Is the production database secured properly?'],
+              ['Yo <em>estoy</em> completamente de acuerdo con los nuevos términos comerciales.','I completely agree with the new commercial terms.'],
+              ['El código fuente ya <em>está</em> optimizado para ejecutarse más rápido.','The source code is already optimized to run faster.'],
+              ['¿<em>Estás</em> seguro de que este comando es el correcto?','Are you sure this command is the correct one?'],
+              ['Nuestra cuenta bancaria corporativa ya <em>está</em> activa.','Our corporate bank account is already active.'],
+              ['Los desarrolladores <em>están</em> ocupados resolviendo un fallo crítico.','The developers are busy resolving a critical bug.'],
+              ['Yo <em>estoy</em> muy satisfecho con los avances del backend.','I am very satisfied with the progress of the backend.'],
+              ['¿El token de autenticación de usuario todavía <em>está</em> válido?','Is the user authentication token still valid?'],
+              ['La conexión a internet de la oficina <em>está</em> inestable hoy.','The office internet connection is unstable today.'],
+              ['El presupuesto del proyecto ya <em>está</em> completamente aprobado.','The project budget is already fully approved.'],
+              ['¿<em>Estás</em> interesado en auditar estos registros conmigo?','Are you interested in auditing these logs with me?'],
+              ['Mis planes de inversión a largo plazo ya <em>están</em> definidos.','My long-term investment plans are already defined.'],
+              ['La API de pagos externos ya <em>está</em> configurada correctamente.','The external payments API is already configured correctly.'],
+              ['El equipo de desarrollo <em>está</em> listo para el sprint final.','The development team is ready for the final sprint.']
             ]
           },
           s3: {
@@ -190,7 +268,23 @@
               ['Yo <em>estoy</em> trabajando desde casa esta semana.','I am working from home this week.'],
               ['¿Qué <em>estás</em> haciendo con ese script?','What are you doing with that script?'],
               ['Nosotros <em>estamos</em> enfocados en optimizar el tiempo.','We are focused on optimizing time.'],
-              ['Ellos <em>están</em> analizando las métricas del portafolio.','They are analyzing the portfolio metrics.']
+              ['Ellos <em>están</em> analizando las métricas del portafolio.','They are analyzing the portfolio metrics.'],
+              ['Yo <em>estoy</em> escribiendo la lógica de autenticación en JavaScript.','I am writing the authentication logic in JavaScript.'],
+              ['¿Qué base de datos <em>estás</em> usando para guardar los usuarios?','What database are you using to save users?'],
+              ['Él <em>está</em> depurando un problema de memoria en el servidor.','He is debugging a memory problem on the server.'],
+              ['Nosotros <em>estamos</em> construyendo una interfaz web responsiva.','We are building a responsive web interface.'],
+              ['Ellos <em>están</em> migrando la base de datos local a la nube.','They are migrating the local database to the cloud.'],
+              ['¿<em>Estás</em> descargando las últimas actualizaciones del entorno de desarrollo?','Are you downloading the latest updates from the development environment?'],
+              ['Yo <em>estoy</em> automatizando las copias de seguridad de mis bases de datos.','I am automating the backups of my databases.'],
+              ['Ella <em>está</em> diseñando los nuevos diagramas de flujo del sistema.','She is designing the new system flowcharts.'],
+              ['Nosotros <em>estamos</em> expandiendo las capacidades del módulo de rizz.','We are expanding the capabilities of the rizz module.'],
+              ['Ellos <em>están</em> probando la velocidad de carga del sitio web.','They are testing the website load speed.'],
+              ['¿Qué problemas de rendimiento <em>estás</em> experimentando ahora?','What performance issues are you experiencing right now?'],
+              ['Yo <em>estoy</em> leyendo la documentación técnica oficial de la API.','I am reading the official technical documentation of the API.'],
+              ['Él <em>está</em> configurando los permisos de acceso del usuario administrador.','He is configuring the access permissions for the admin user.'],
+              ['Nosotros <em>estamos</em> refinando el diseño visual de los componentes de la interfaz.','We are refining the visual design of UI components.'],
+              ['Ellos <em>están</em> monitoreando el tráfico del servidor en tiempo real.','They are monitoring server traffic in real time.'],
+              ['¿<em>Estás</em> buscando un nuevo enfoque para este algoritmo de ordenamiento?','Are you looking for a new approach for this sorting algorithm?']
             ]
           }
         }
@@ -202,10 +296,26 @@
           s1: {
             title: 'Posesión y Edad',
             data: [
-              ['<em>Tengo</em> un sistema personalizado para monitorear el progreso.','I have a customized system to monitor progress.'],
+              ['<em>Tengo</em> un systema personalizado para monitorear el progreso.','I have a customized system to monitor progress.'],
               ['¿Cuántos años <em>tienes</em>? Tengo treinta y siete años.','How old are you? I am thirty-seven years old.'],
               ['Él <em>tiene</em> toda la información en su computadora.','He has all the information on his computer.'],
-              ['¿<em>Tienes</em> los números exactos del trimestre pasado?','Do you have the exact numbers from last quarter?']
+              ['¿<em>Tienes</em> los números exactos del trimestre pasado?','Do you have the exact numbers from last quarter?'],
+              ['Yo <em>tengo</em> varias copias de seguridad de mi código base.','I have several backups of my codebase.'],
+              ['¿<em>Tienes</em> una cuenta activa en esta plataforma de desarrollo?','Do you have an active account on this development platform?'],
+              ['Mi hermano <em>tiene</em> una casa hermosa en el sur de Chile.','My brother has a beautiful house in southern Chile.'],
+              ['Nosotros <em>tenemos</em> suficiente espacio de almacenamiento en el servidor.','We have enough storage space on the server.'],
+              ['Ellos <em>tienen</em> un plan de negocios muy detallado para la ronda semilla.','They have a very detailed business plan for the seed round.'],
+              ['¿Tú <em>tienes</em> acceso de lectura y escritura al repositorio privado?','Do you have read and write access to the private repository?'],
+              ['Yo <em>tengo</em> una libreta física para mis sesiones de lluvia de ideas.','I have a physical notebook for my brainstorming sessions.'],
+              ['¿Cuántos archivos de configuración <em>tiene</em> esta aplicación web?','How many configuration files does this web application have?'],
+              ['Nuestra empresa corporativa <em>tiene</em> tres socios comerciales principales.','Our corporate company has three main business partners.'],
+              ['Ellas <em>tienen</em> mucha experiencia en diseño visual interactivo.','They have a lot of experience in interactive visual design.'],
+              ['Yo no <em>tengo</em> las credenciales secretas de la API de producción.','I do not have the production API secret credentials.'],
+              ['¿<em>Tienes</em> un cargador extra para mi computadora portátil?','Do you have an extra charger for my laptop?'],
+              ['Esta base de datos <em>tiene</em> indexación automática implementada.','This database has automatic indexing implemented.'],
+              ['Nosotros <em>tenemos</em> una videollamada de control técnico en una hora.','We have a technical review video call in an hour.'],
+              ['¿Qué tipo de licencia de software <em>tiene</em> este paquete de Node.js?','What type of software license does this Node.js package have?'],
+              ['El módulo de estilos CSS <em>tiene</em> variables muy fáciles de cambiar.','The CSS styles module has variables that are very easy to change.']
             ]
           },
           s2: {
@@ -214,7 +324,23 @@
               ['Tengo prisa porque la reunión empieza pronto.','I am in a hurry because the meeting starts soon.'],
               ['¿No tienes frío con esa ventana abierta?','Aren\'t you cold with that window open?'],
               ['Ella <em>tiene</em> una mentalidad muy disciplinada para los negocios.','She has a very disciplined mindset for business.'],
-              ['Tenemos mucha suerte de contar con este recurso.','We are very lucky to have this resource.']
+              ['Tenemos mucha suerte de contar con este recurso.','We are very lucky to have this resource.'],
+              ['Yo <em>tengo</em> mucho sueño después de escribir código toda la noche.','I am very sleepy after writing code all night.'],
+              ['¿<em>Tienes</em> ganas de revisar esta documentación aburrida hoy?','Do you feel like reviewing this boring documentation today?'],
+              ['Él siempre <em>tiene</em> razón cuando habla de optimización de bases de datos.','He is always right when he talks about database optimization.'],
+              ['Nosotros <em>tenemos</em> mucho cuidado al desplegar cambios en vivo.','We are very careful when deploying changes live.'],
+              ['Ellos <em>tienen</em> prisa por terminar el entregable de software.','They are in a hurry to finish the software deliverable.'],
+              ['¿<em>Tienes</em> miedo de romper el backend si ejecutas este script?','Are you afraid of breaking the backend if you run this script?'],
+              ['Yo <em>tengo</em> el presentimiento de que esta actualización solucionará el problema.','I have a feeling that this update will fix the problem.'],
+              ['¿Por qué <em>tienes</em> tanta prisa por cerrar el entorno de pruebas?','Why are you in such a hurry to close the testing environment?'],
+              ['Ella <em>tiene</em> la intención de automatizar todo su flujo de trabajo.','She intends to automate her entire workflow.'],
+              ['Nosotros <em>tenemos</em> el control completo sobre las claves de cifrado de datos.','We have full control over the data encryption keys.'],
+              ['Ellos <em>tienen</em> la culpa de no validar los datos de entrada del usuario.','They are to blame for not validating user input data.'],
+              ['¿<em>Tienes</em> tiempo libre para una sesión rápida de solución de problemas?','Do you have free time for a quick troubleshooting session?'],
+              ['Yo siempre <em>tengo</em> la precaución de encriptar mis datos personales.','I always take the precaution of encrypting my personal data.'],
+              ['¿Qué dudas <em>tienes</em> sobre el uso de este framework frontend?','What doubts do you have about using this frontend framework?'],
+              ['Nosotros <em>tenemos</em> total confianza en la escalabilidad de esta API.','We have total confidence in the scalability of this API.'],
+              ['Él <em>tiene</em> la paciencia necesaria para encontrar fallos ocultos de código.','He has the necessary patience to find hidden code bugs.']
             ]
           },
           s3: {
@@ -223,7 +349,23 @@
               ['<em>Tengo</em> que revisar mis inversiones esta noche.','I have to review my investments tonight.'],
               ['¿Qué <em>tienes</em> que hacer mañana por la mañana?','What do you have to do tomorrow morning?'],
               ['Nosotros <em>tenemos</em> que diversificar los esfuerzos esta semana.','We have to diversify our efforts this week.'],
-              ['Tienes que practicar todos los días para ver resultados.','You have to practice every day to see results.']
+              ['Tienes que practicar todos los días para ver resultados.','You have to practice every day to see results.'],
+              ['Yo <em>tengo</em> que refactorizar esta función antes del viernes.','I have to refactor this function before Friday.'],
+              ['¿<em>Tienes</em> que subir estos cambios de código a la rama principal hoy?','Do you have to push these code changes to the main branch today?'],
+              ['Él <em>tiene</em> que renovar la suscripción del servidor web de base de datos.','He has to renew the database web server subscription.'],
+              ['Nosotros <em>tenemos</em> que limpiar el código CSS que no estamos usando.','We have to clean up the unused CSS code.'],
+              ['Ellos <em>tienen</em> que corregir tres errores de seguridad críticos.','They have to fix three critical security bugs.'],
+              ['¿Qué parámetros <em>tienes</em> que pasarle a esta función asíncrona?','What parameters do you have to pass to this asynchronous function?'],
+              ['Yo <em>tengo</em> que escribir pruebas automatizadas para el endpoint de pagos.','I have to write automated tests for the payments endpoint.'],
+              ['Ella <em>tiene</em> que diseñar la arquitectura de la nueva API REST.','She has to design the architecture of the new REST API.'],
+              ['Nosotros <em>tenemos</em> que asegurar que el script funcione de forma nativa.','We have to ensure that the script works natively.'],
+              ['Tienes que usar variables de entorno para guardar contraseñas de API.','You have to use environment variables to store API keys.'],
+              ['Ellos <em>tienen</em> que migrar todos los datos de usuario a un nuevo clúster.','They have to migrate all user data to a new cluster.'],
+              ['¿A qué hora <em>tienes</em> que conectarte a la llamada técnica grupal?','What time do you have to log into the group technical call?'],
+              ['Yo <em>tengo</em> que documentar el código fuente para los nuevos ingenieros.','I have to document the source code for new engineers.'],
+              ['¿Por qué <em>tenemos</em> que cambiar la versión actual de la base de datos?','Why do we have to change the current database version?'],
+              ['Tienes que verificar la sintaxis de tu JSON antes de enviarlo.','You have to verify your JSON syntax before sending it.'],
+              ['Él <em>tiene</em> que optimizar las consultas SQL para reducir la latencia de respuesta.','He has to optimize SQL queries to reduce response latency.']
             ]
           }
         }
@@ -238,7 +380,18 @@
               ['<em>Quiero</em> construir algo que dure por generaciones.','I want to build something that lasts for generations.'],
               ['¿Qué <em>quieres</em> lograr con este proyecto de código?','What do you want to achieve with this code project?'],
               ['Nosotros <em>queremos</em> viajar a Chile a finales de mayo.','We want to travel to Chile at the end of May.'],
-              ['Quiero aprender español para comunicarme con fluidez.','I want to learn Spanish to communicate fluently.']
+              ['Quiero aprender español para comunicarme con fluidez.','I want to learn Spanish to communicate fluently.'],
+              ['Yo <em>quiero</em> dominar el uso de las APIs de síntesis de voz nativas.','I want to master the use of native speech synthesis APIs.'],
+              ['¿<em>Quieres</em> automatizar la extracción de datos de este sitio web?','Do you want to automate data extraction from this website?'],
+              ['Él <em>quiere</em> lanzar su propia aplicación de software de código abierto en GitHub.','He wants to launch his own open-source software app on GitHub.'],
+              ['Nosotros <em>queremos</em> comprar un servidor físico para proyectos locales.','We want to buy a physical server for local projects.'],
+              ['Ellos <em>quieren</em> expandir su equipo de ingeniería de datos el próximo año.','They want to expand their data engineering team next year.'],
+              ['¿Tú <em>quieres</em> especializarte en desarrollo de arquitecturas en la nube?','Do you want to specialize in cloud architecture development?'],
+              ['Yo <em>quiero</em> mejorar la velocidad de procesamiento de mis scripts en Python.','I want to improve the processing speed of my Python scripts.'],
+              ['Ella <em>quiere</em> integrar un sistema de inicio de sesión con huella digital.','She wants to integrate a fingerprint login system.'],
+              ['Nosotros <em>queremos</em> crear una interfaz de usuario completamente personalizable.','We want to create a completely customizable user interface.'],
+              ['¿Qué tipo de base de datos <em>quieren</em> usar para el nuevo sistema?','What type of database do they want to use for the new system?'],
+              ['Yo no <em>quiero</em> depender de plataformas en la nube caras de terceros.','I do not want to depend on expensive third-party cloud platforms.']
             ]
           },
           s2: {
@@ -247,7 +400,18 @@
               ['Quiero la cuenta, por favor, cuando tenga un momento.','I want the check, please, when you have a moment.'],
               ['¿<em>Quieres</em> revisar los detalles del contrato conmigo?','Do you want to review the contract details with me?'],
               ['Quiero comprar este libro físico para mi colección.','I want to buy this physical book for my collection.'],
-              ['Nosotros <em>queremos</em> mitigar el riesgo lo más posible.','We want to mitigate risk as much as possible.']
+              ['Nosotros <em>queremos</em> mitigar el riesgo lo más posible.','We want to mitigate risk as much as possible.'],
+              ['Yo <em>quiero</em> solicitar acceso de administrador a la base de datos de pruebas.','I want to request admin access to the testing database.'],
+              ['¿<em>Quieres</em> que te envíe los fragmentos de código por correo electrónico?','Do you want me to send you the code snippets by email?'],
+              ['Él <em>quiere</em> negociar los términos de la API paga con el proveedor de servicios.','He wants to negotiate the paid API terms with the service provider.'],
+              ['Nosotros <em>queremos</em> un presupuesto estimado para el desarrollo del backend.','We want an estimated budget for backend development.'],
+              ['¿Cuánto dinero <em>quieres</em> invertir en esta nueva herramienta de desarrollo?','How much money do you want to invest in this new development tool?'],
+              ['Yo <em>quiero</em> cancelar mi suscripción mensual a este servicio en la nube.','I want to cancel my monthly subscription to this cloud service.'],
+              ['¿<em>Quieres</em> que hagamos una llamada para revisar la lógica de estilos CSS?','Do you want us to jump on a call to review the CSS styles logic?'],
+              ['Nosotros <em>queremos</em> actualizar la versión actual de la librería lo antes posible.','We want to update the current library version as soon as possible.'],
+              ['¿Qué cambios de diseño <em>quieres</em> aplicar a las tarjetas de la interfaz?','What design changes do you want to apply to the interface cards?'],
+              ['Yo <em>quiero</em> asegurar que el código fuente sea completamente privado.','I want to ensure that the source code is completely private.'],
+              ['¿<em>Quieres</em> guardar estos registros en un archivo de texto separado?','Do you want to save these logs in a separate text file?']
             ]
           }
         }
@@ -262,7 +426,18 @@
               ['Yo <em>hago</em> un análisis profundo antes de comprometerme.','I do a deep analysis before committing.'],
               ['¿Qué <em>haces</em> los fines de semana para desconectar?','What do you do on weekends to disconnect?'],
               ['Él <em>hace</em> todos los reportes usando scripts de Python.','He makes all the reports using Python scripts.'],
-              ['Cada pequeño hábito <em>hace</em> una gran diferencia al final.','Every small habit makes a big difference in the end.']
+              ['Cada pequeño hábito <em>hace</em> una gran diferencia al final.','Every small habit makes a big difference in the end.'],
+              ['Yo <em>hago</em> una limpieza completa de mi base de datos de forma mensual.','I perform a complete cleanup of my database on a monthly basis.'],
+              ['¿Qué mejoras de diseño le <em>haces</em> a la interfaz web cada semana?','What design improvements do you make to the web interface every week?'],
+              ['Ella <em>hace</em> las pruebas de estrés del servidor los domingos por la noche.','She runs server stress tests on Sunday nights.'],
+              ['Nosotros <em>hacemos</em> implementaciones de código limpias usando control de versiones.','We make clean code deployments using version control.'],
+              ['Ellos <em>hacen</em> un gran esfuerzo por mantener la documentación al día.','They make a huge effort to keep the documentation up to date.'],
+              ['¿Tú <em>haces</em> integraciones de bases de datos relacionales frecuentemente?','Do you perform relational database integrations frequently?'],
+              ['Yo <em>hago</em> copias de seguridad incrementales automáticas cada doce horas.','I make automatic incremental backups every twelve hours.'],
+              ['Este script de automatización <em>hace</em> que el trabajo pesado desaparezca por completo.','This automation script makes heavy work disappear completely.'],
+              ['Nosotros <em>hacemos</em> una revisión grupal de la lógica de programación interna.','We do a group review of internal programming logic.'],
+              ['¿Qué tipo de proyectos interactivos <em>hacen</em> en tu empresa tecnológica?','What kind of interactive projects do they make at your tech company?'],
+              ['Yo siempre <em>hago</em> una lista de tareas pendientes antes de escribir código.','I always make a to-do list before writing code.']
             ]
           },
           s2: {
@@ -270,7 +445,19 @@
             data: [
               ['<em>Hace</em> varios meses que comencé este plan de estudio.','It has been several months since I started this study plan.'],
               ['Hace dos años que compré mi moto Vespa.','It has been two years since I bought my Vespa scooter.'],
-              ['¿Cuánto tiempo hace que trabajas en esta empresa?','How long has it been since you worked at this company?']
+              ['¿Cuánto tiempo hace que trabajas en esta empresa?','How long has it been since you worked at this company?'],
+              ['<em>Hace</em> una semana que desplegamos la versión beta de la aplicación.','It has been a week since we deployed the beta version of the app.'],
+              ['Hace tres días que no reviso las métricas de rendimiento en la terminal.','It has been three days since I checked performance metrics in the terminal.'],
+              ['¿Cuánto tiempo <em>hace</em> que aprendes a programar interfaces dinámicas?','How long has it been since you learned to program dynamic interfaces?'],
+              ['Hace meses que mi socio no actualiza el servidor de desarrollo local.','It has been months since my partner updated the local development server.'],
+              ['<em>Hace</em> pocas horas que se solucionó el fallo en la base de datos principal.','It has been a few hours since the bug in the main database was fixed.'],
+              ['¿Cuántos años <em>hace</em> que usas sistemas operativos basados en UNIX?','How many years has it been since you used UNIX-based operating systems?'],
+              ['Hace mucho tiempo que no escribía código CSS puro sin frameworks.','It has been a long time since I wrote pure CSS code without frameworks.'],
+              ['<em>Hace</em> un momento que se ejecutó con éxito el script de migración.','A moment ago the migration script executed successfully.'],
+              ['¿Cuánto tiempo <em>hace</em> que configuraste este token de autenticación secreto?','How long has it been since you configured this secret auth token?'],
+              ['Hace dos semanas que no hago una sesión de refactorización profunda de código.','It has been two weeks since I did a deep code refactoring session.'],
+              ['<em>Hace</em> un año completo que iniciamos este desarrollo paralelo personal.','It has been a full year since we started this personal side development.'],
+              ['¿Cuánto tiempo <em>hace</em> que se cayó la conexión con el servidor virtual de pruebas?','How long has it been since the connection to the virtual testing server dropped?']
             ]
           }
         }
@@ -285,7 +472,17 @@
           ['Hola, me llamó la atención tu enfoque. ¿<em>Eres</em> de Nueva York?','Hi, your focus caught my eye. Are you from New York?'],
           ['No suelo interrumpir, pero <em>tienes</em> una presencia increíble.','I don\'t usually interrupt, but you have an incredible presence.'],
           ['¿<em>Estás</em> trabajando en algo interesante o solo descansando?','Are you working on something interesting or just relaxing?'],
-          ['Qué buen estilo tienes, me dio curiosidad venir a saludarte.','You have great style, I was curious to come say hello.']
+          ['Qué buen estilo tienes, me dio curiosidad venir a saludarte.','You have great style, I was curious to come say hello.'],
+          ['Hola, me llamó la atención lo concentrada que estás. ¿Qué lees?','Hi, it caught my attention how focused you are. What are you reading?'],
+          ['No tengo mucho tiempo, pero si no me presentaba me iba a arrepentir.','I don\'t have much time, but if I didn\'t introduce myself I\'d regret it.'],
+          ['Hola, qué buena vibra transmites. Tenía que venir a decírtelo en persona.','Hi, you radiate such a great vibe. I had to come tell you in person.'],
+          ['Disculpa la audacia, pero me pareciste la persona más interesante de aquí.','Excuse my boldness, but you seemed like the most interesting person here.'],
+          ['Hola, te vi de lejos y me dio curiosidad saber qué tipo de proyectos haces.','Hi, I saw you from afar and was curious to know what kind of projects you do.'],
+          ['Hola, qué buen café preparan aquí. ¿Es tu lugar favorito para trabajar remoto?','Hi, they make great coffee here. Is this your favorite spot to work remotely?'],
+          ['Perdona que te interrumpa, pero me encantó tu estilo. Soy Djeff, por cierto.','Sorry to interrupt, but I loved your style. I\'m Djeff, by the way.'],
+          ['Hola, te ves como alguien que aprecia una buena conversación. ¿Me equivoco?','Hi, you look like someone who appreciates a good conversation. Am I wrong?'],
+          ['No me gusta quedarme con la intriga, así que vine a decirte hola.','I don\'t like staying curious, so I came over to say hello.'],
+          ['Hola, qué auriculares tan geniales tienes. ¿Estás escuchando algo que te inspire?','Hi, those are cool headphones. Are you listening to something inspiring?']
         ]
       },
       s2: {
@@ -293,7 +490,14 @@
         data: [
           ['Me gusta tu energía, te ves como alguien muy enfocada.','I like your energy, you look like someone very focused.'],
           ['Tienes un gusto excelente para los libros, ese es un clásico.','You have excellent taste in books, that one is a classic.'],
-          ['Se nota que cuidas mucho tus proyectos y tu espacio.','It shows that you take great care of your projects and space.']
+          ['Se nota que cuidas mucho tus proyectos y tu espacio.','It shows that you take great care of your projects and space.'],
+          ['Me llama la atención la calma con la que manejas todo a tu alrededor.','It catches my attention how calmly you handle everything around you.'],
+          ['Tienes una forma de hablar muy elocuente y eso me encanta.','You have a very eloquent way of speaking and I love that.'],
+          ['Se nota a distancia que eres una persona con metas claras y mucha ambición.','You can tell from a distance that you are someone with clear goals and high ambition.'],
+          ['Me gusta que no aparentas ser alguien que no eres, te ves muy auténtica.','I like that you don't pretend to be someone you\'re not, you look very authentic.'],
+          ['Tienes una mirada muy expresiva, es imposible ignorar tu presencia.','You have a very expressive gaze, it\'s impossible to ignore your presence.'],
+          ['Se nota que eres apasionada con lo que haces, tienes un brillo especial al hablar.','It shows that you\'re passionate about what you do, you have a special spark when speaking.'],
+          ['Me encanta tu sentido del humor, eres inteligente y rápida con tus respuestas.','I love your sense of humor, you\'re intelligent and quick with your responses.']
         ]
       },
       s3: {
@@ -301,7 +505,14 @@
         data: [
           ['Me tengo que ir, pero me gustaría seguir hablando contigo.','I have to go, but I would like to keep talking to you.'],
           ['¿Intercambiamos números y nos tomamos un café esta semana?','Shall we exchange numbers and grab a coffee this week?'],
-          ['Pásame tu contacto, si estás libre coordinamos algo casual.','Give me your contact info, if you\'re free we\'ll arrange something casual.']
+          ['Pásame tu contacto, si estás libre coordinamos algo casual.','Give me your contact info, if you\'re free we\'ll arrange something casual.'],
+          ['Me caíste genial. Pásame tu Instagram o número y seguimos la charla luego.','I think you\'re great. Give me your Instagram or number and we\'ll continue later.'],
+          ['Tengo que volver a mis pendientes, pero me encantaría invitarte a salir.','I have to get back to my tasks, but I would love to take you out.'],
+          ['Hagamos algo: dame tu contacto y coordinamos un almuerzo casual esta semana.','Let\'s do something: give me your contact info and we\'ll set up a casual lunch this week.'],
+          ['Me gustó mucho conocerte. Apunta tu número aquí antes de que me retire.','I really enjoyed meeting you. Put your number here before I step out.'],
+          ['Si estás libre el jueves por la noche, podríamos ir a tomar una copa.','If you\'re free Thursday night, we could go grab a drink.'],
+          ['Me pareces una mujer increíble, no quiero perder el contacto. ¿Me das tu número?','I think you\'re an amazing woman, I don\'t want to lose touch. Will you give me your number?'],
+          ['Vamos a tomar un café un día de estos, te aseguro que no te vas a arrepentir.','Let\'s grab a coffee one of these days, I assure you you won\'t regret it.']
         ]
       },
       s4: {
@@ -310,7 +521,13 @@
           ['Me interesa saber, ¿qué <em>es</em> lo que más te apasiona?','I\'m interested to know, what are you most passionate about?'],
           ['¿<em>Eres</em> una persona de planes estructurados o prefieres fluir?','Are you a person of structured plans or do you prefer to flow?'],
           ['Me gusta que se pueda hablar contigo de cosas reales.','I like that one can talk with you about real things.'],
-          ['Qué buena conversación, hacía tiempo que no hablaba así con alguien.','Great conversation, it\'s been a while since I talked to someone like this.']
+          ['Qué buena conversación, hacía tiempo que no hablaba así con alguien.','Great conversation, it\'s been a while since I talked to someone like this.'],
+          ['Me intriga tu forma de pensar. Cuéntame más sobre ese proyecto tuyo.','I\'m intrigued by your way of thinking. Tell me more about that project of yours.'],
+          ['Aprecio mucho la madurez con la que ves la vida, es refrescante.','I really appreciate the maturity with which you see life, it\'s refreshing.'],
+          ['Me gusta que tengamos opiniones distintas pero podamos debatirlo con respeto.','I like that we have different opinions but can debate it with respect.'],
+          ['Eres un misterio interesante. Me dan ganas de conocerte más a fondo.','You\'re an interesting mystery. It makes me want to get to know you deeper.'],
+          ['¿Cuál es tu lugar favorito en toda la ciudad cuando quieres esconderte del mundo?','What\'s your favorite place in the whole city when you want to hide from the world?'],
+          ['Me haces reír con mucha facilidad, tienes un encanto bastante único.','You make me laugh very easily, you have a pretty unique charm.']
         ]
       },
       s5: {
@@ -318,7 +535,14 @@
         data: [
           ['No te preocupes, entiendo perfectamente. Que tengas un buen día.','Don\'t worry, I completely understand. Have a great day.'],
           ['Gracias por la honestidad, se valora mucho. Cuídate.','Thanks for the honesty, it\'s much appreciated. Take care.'],
-          ['Fue un placer saludarte de todos modos, que estés muy bien.','It was a pleasure to greet you anyway, wish you all the best.']
+          ['Fue un placer saludarte de todos modos, que estés muy bien.','It was a pleasure to greet you anyway, wish you all the best.'],
+          ['Entiendo el punto, ningún problema. Éxitos con lo que estás haciendo.','I get the point, no problem. Success with what you\'re doing.'],
+          ['Tranquila, no pasa nada. Me alegro de haber venido a saludarte igualmente.','Relax, it\'s all good. I\'m glad I came over to say hello anyway.'],
+          ['Perfecto, gracias por ser tan directa desde el principio. Suerte en todo.','Perfect, thanks for being so direct from the start. Good luck with everything.'],
+          ['No te quito más tiempo. Que pases una excelente tarde.','I won\'t take any more of your time. Have an excellent afternoon.'],
+          ['No hay drama, se nota que eres una gran persona de todos modos. Adiós.','No drama, you seem like a great person anyway. Goodbye.'],
+          ['Vale, entiendo perfectamente el contexto. Que disfrutes tu libro.','Okay, I completely understand the context. Enjoy your book.'],
+          ['Quédate tranquila, un gusto conocerte de forma rápida. Que te vaya muy bien.','Don\'t worry, nice to quickly meet you. Hope everything goes well for you.']
         ]
       }
     };
@@ -445,7 +669,6 @@
       const totalCount = learnedV.size + learnedR.size;
       document.getElementById('learnedCount').textContent = totalCount;
       
-      // Calculate global pool boundaries
       let maxItems = 0;
       Object.keys(VERBS).forEach(v => Object.keys(VERBS[v].sections).forEach(s => maxItems += VERBS[v].sections[s].data.length));
       Object.keys(RIZZ).forEach(s => maxItems += RIZZ[s].data.length);
@@ -453,7 +676,6 @@
       const pct = maxItems > 0 ? (totalCount / maxItems) * 100 : 0;
       document.getElementById('progressBar').style.width = `${pct}%`;
 
-      // Save arrays permanently down to localStorage
       localStorage.setItem('learnedV', JSON.stringify([...learnedV]));
       localStorage.setItem('learnedR', JSON.stringify([...learnedR]));
     }
@@ -466,7 +688,6 @@
       quizIdx = 0;
       quizIsVerb = (currentMode === 'verbs');
 
-      // Populate targeted pool items
       if (quizIsVerb) {
         const verbData = VERBS[currentVerb];
         Object.keys(verbData.sections).forEach(sKey => {
@@ -481,10 +702,8 @@
 
       if (quizPool.length === 0) return;
       
-      // Dynamic Shuffler
       quizPool.sort(() => Math.random() - 0.5);
       
-      // Bi-Directional Direction Selection
       quizDirection = confirm("¿Quieres activar el modo reverso?\n\n(Aceptar = Inglés a Español)\n(Cancelar = Español a Inglés)") ? 'EN_SP' : 'SP_EN';
       
       const titleStr = quizIsVerb ? VERBS[currentVerb].title.toUpperCase() : 'RIZZ CONVERSACIONAL';
@@ -507,7 +726,7 @@
         tEl.className = "quiz-en blur";
       } else {
         pEl.innerHTML = q.en;
-        tEl.innerHTML = q.sp.replace(/<\/?[^>]+(>|$)/g, ""); // Strip highlighting inside flash answers
+        tEl.innerHTML = q.sp.replace(/<\/?[^>]+(>|$)/g, "");
         tEl.className = "quiz-en blur";
       }
       
@@ -522,7 +741,6 @@
         else learnedR.add(q.sp);
         updateStats();
         
-        // Dynamic card view syncing
         const cardElements = document.querySelectorAll('.card');
         cardElements.forEach(card => {
           if (card.querySelector('.card-sp').innerHTML === q.sp) {
@@ -538,6 +756,7 @@
     }
 
     function closeQuiz() {
+      document.getElementById('quizOverlay').classList.remove('remove');
       document.getElementById('quizOverlay').classList.remove('active');
       renderCards();
     }
