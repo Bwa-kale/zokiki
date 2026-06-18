@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <title>Djeff Merzier — Language Dashboard</title>
+  <style>
+    :root {
+      --bg: #0d0e12;
+      --card-bg: #161822;
+      --border: #24273a;
+      --text: #cdd6f4;
+      --text-muted: #7f849c;
+      --blue: #89b4fa;
+      --teal: #94e2d5;
+      --purple: #cba6f7;
+      --pink: #f5c2e7;
+      --amber: #f9e2af;
+      --green: #a6e3a1;
+      --accent: #b4befe;
+      --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font); }
+    body { background: var(--bg); color: var(--text); padding: 20px; padding-bottom: 80px; }
+    header { max-width: 800px; margin: 0 auto 24px; text-align: center; }
+    h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; letter-spacing: -0.5px; }
+    .subtitle { color: var(--text-muted); font-size: 14px; }
+    
+    .nav-tabs { display: flex; max-width: 800px; margin: 0 auto 20px; background: var(--card-bg); padding: 4px; border-radius: 12px; border: 1px solid var(--border); }
+    .nav-tab { flex: 1; text-align: center; padding: 10px; font-size: 14px; font-weight: 600; color: var(--text-muted); cursor: pointer; border-radius: 8px; transition: all 0.2s; }
+    .nav-tab.active { background: var(--border); color: var(--text); }
+
+    .control-panel { max-width: 800px; margin: 0 auto 20px; display: flex; gap: 10px; flex-wrap: wrap; justify-content: space-between; align-items: center; }
+    .sub-tabs { display: flex; gap: 6px; overflow-x: auto; white-space: nowrap; padding-bottom: 4px; }
+    .sub-tab { background: var(--card-bg); border: 1px solid var(--border); padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 500; color: var(--text-muted); cursor: pointer; }
+    .sub-tab.active { background: var(--border); color: var(--text); }
+    
+    .btn-action { background: var(--card-bg); border: 1px solid var(--border); color: var(--accent); padding: 8px 16px; border-radius: 8px; font-size: 13px; font-weight: 600; cursor: pointer; display: inline-flex; align-items: center; gap: 6px; }
+    .btn-action:hover { background: var(--border); }
+
+    .progress-wrap { max-width: 800px; margin: 0 auto 20px; background: var(--card-bg); border: 1px solid var(--border); padding: 12px; border-radius: 12px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+    .progress-info { font-size: 13px; font-weight: 600; white-space: nowrap; }
+    .progress-bar-bg { flex: 1; background: var(--border); height: 8px; border-radius: 4px; overflow: hidden; }
+    .progress-bar-fill { background: var(--green); height: 100%; width: 0%; transition: width 0.3s ease; }
+
+    .grid { max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: 1fr; gap: 12px; }
+    .card { background: var(--card-bg); border: 1px solid var(--border); border-radius: 14px; padding: 16px; position: relative; transition: border-color 0.2s; cursor: pointer; }
+    .card:hover { border-color: #313244; }
+    .card-sp { font-size: 16px; font-weight: 500; line-height: 1.5; margin-bottom: 6px; color: var(--text); }
+    .card-sp em { color: var(--em-color, var(--blue)); font-style: normal; font-weight: 700; }
+    .card-en { font-size: 14px; color: var(--text-muted); line-height: 1.4; }
+    .card-en.blur { filter: blur(5px); user-select: none; }
+    
+    .badge { position: absolute; top: 16px; right: 16px; width: 8px; height: 8px; border-radius: 50%; background: var(--border); }
+    .card.learned .badge { background: var(--green); }
+
+    .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(13,14,18,0.95); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 20px; }
+    .overlay.active { display: flex; }
+    .quiz-box { background: var(--card-bg); border: 1px solid var(--border); width: 100%; max-width: 500px; border-radius: 20px; padding: 24px; position: relative; text-align: center; }
+    .quiz-header { display: flex; justify-content: space-between; font-size: 12px; font-weight: 700; text-transform: uppercase; color: var(--text-muted); margin-bottom: 24px; border-bottom: 1px solid var(--border); padding-bottom: 12px; }
+    .quiz-main { min-height: 120px; display: flex; flex-direction: column; justify-content: center; align-items: center; margin-bottom: 24px; }
+    .quiz-sp { font-size: 18px; font-weight: 600; margin-bottom: 12px; line-height: 1.5; }
+    .quiz-en { font-size: 15px; color: var(--text-muted); line-height: 1.5; min-height: 22px; }
+    .quiz-en.blur { filter: blur(6px); cursor: pointer; background: rgba(255,255,255,0.03); border-radius: 4px; padding: 2px 8px; }
+    .quiz-footer { display: flex; gap: 10px; }
+    .quiz-btn { flex: 1; padding: 12px; border-radius: 10px; border: 1px solid var(--border); font-size: 14px; font-weight: 600; cursor: pointer; background: var(--card-bg); color: var(--text); }
+    .quiz-btn.primary { background: var(--accent); color: var(--bg); border: none; }
+    .quiz-close { position: absolute; top: -40px; right: 0; color: var(--text-muted); font-size: 14px; cursor: pointer; font-weight: 600; }
+
+    @media (max-width: 600px) {
+      body { padding: 12px; padding-bottom: 80px; }
+      .control-panel { flex-direction: column; align-items: stretch; gap: 12px; }
+      .sub-tabs { width: 100%; }
+      .btn-action { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Djeff Merzier</h1>
+    <div class="subtitle">Language Engineering Dashboard</div>
+  </header>
+
+  <div class="nav-tabs">
+    <div class="nav-tab active" id="tab-verbs" onclick="switchMainMode('verbs')">Verbos Principales</div>
+    <div class="nav-tab" id="tab-rizz" onclick="switchMainMode('rizz')">Conversational Rizz</div>
+  </div>
+
+  <div class="control-panel">
+    <div class="sub-tabs" id="subTabsContainer"></div>
+    <div style="display: flex; gap: 8px;">
+      <button class="btn-action" id="btnToggleTrans" onclick="toggleTranslations()">👁 Toggle</button>
+      <button class="btn-action" style="color:var(--green);" onclick="startQuiz()">◈ Quiz</button>
+    </div>
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-info">Progreso: <span id="learnedCount">0</span> Dominadas</div>
+    <div class="progress-bar-bg"><div class="progress-bar-fill" id="progressBar"></div></div>
+  </div>
+
+  <div class="grid" id="cardGrid"></div>
+
+  <div class="overlay" id="quizOverlay">
+    <div class="quiz-box">
+      <div class="quiz-close" onclick="closeQuiz()">✕ CERRAR</div>
+      <div class="quiz-header">
+        <span id="quizLabel">QUIZ</span>
+        <span><span id="quizIdx">0</span> / <span id="quizTotal">0</span></span>
+      </div>
+      <div class="quiz-main">
+        <div class="quiz-sp" id="quizSpanish"></div>
+        <div class="quiz-en blur" id="quizEnglish" onclick="revealQuiz()">Click para revelar</div>
+      </div>
+      <div class="quiz-footer">
+        <button class="quiz-btn" onclick="revealQuiz()">Revelar</button>
+        <button class="quiz-btn primary" onclick="nextQuizCard()">Siguiente →</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // ══════════════════════════════════════════
+    // DATA CORE (EXPANDED TO INCLUDE NEW DRILLS)
+    // ══════════════════════════════════════════
+    const VERBS = {
+      ser: {
+        title: 'Ser',
+        color: 'var(--blue)',
+        sections: {
+          s1: {
+            title: 'Identidad/Origen/Profesión',
+            data: [
+              ['Yo <em>soy</em> de Haití, pero vivo en Nueva York.','I am from Haiti, but I live in New York.'],
+              ['¿De dónde <em>eres</em> tú originalmente?','Where are you originally from?'],
+              ['Él <em>es</em> ingeniero de software y trabaja remoto.','He is a software engineer and works remotely.'],
+              ['Nosotros <em>somos</em> un equipo muy disciplinado.','We are a very disciplined team.'],
+              ['Yo <em>soy</em> el responsable de la toma de decisiones finales.','I am the one responsible for final decision-making.'],
+              ['El valor real <em>es</em> el conocimiento que adquieres.','The real value is the knowledge you acquire.']
+            ]
+          },
+          s2: {
+            title: 'Descripción Esencial',
+            data: [
+              ['Esta estrategia <em>es</em> para el largo plazo, no para hoy.','This strategy is for the long term, not for today.'],
+              ['El coche de mi hermano <em>es</em> negro.','My brother\'s car is black.'],
+              ['La situación <em>es</em> un poco compleja de explicar.','The situation is a bit complex to explain.'],
+              ['¿<em>Es</em> este el camino correcto para el proyecto?','Is this the correct path for the project?']
+            ]
+          },
+          s3: {
+            title: 'Tiempo/Precio/Eventos',
+            data: [
+              ['¿Qué hora <em>es</em>? Ahora <em>es</em> la una de la tarde.','What time is it? Right now it is one in the afternoon.'],
+              ['Hoy <em>es</em> lunes y tengo mucho trabajo pendiente.','Today is Monday and I have a lot of pending work.'],
+              ['¿Cuánto <em>es</em> en total? <em>Son</em> veinte dólares.','How much is it in total? It is twenty dollars.'],
+              ['La reunión de inversores <em>es</em> en la sala principal.','The investors\' meeting is in the main room.']
+            ]
+          }
+        }
+      },
+      estar: {
+        title: 'Estar',
+        color: 'var(--teal)',
+        sections: {
+          s1: {
+            title: 'Ubicación Física/Geográfica',
+            data: [
+              ['Yo <em>estoy</em> en mi oficina en este momento.','I am in my office right now.'],
+              ['¿Dónde <em>estás</em>? Estoy afuera del edificio.','Where are you? I am outside the building.'],
+              ['La documentación técnica ya <em>está</em> archivada en el repositorio.','The technical documentation is already archived in the repository.'],
+              ['Nosotros <em>estamos</em> cerca de la estación de metro.','We are near the subway station.']
+            ]
+          },
+          s2: {
+            title: 'Estados Temporales/Condiciones',
+            data: [
+              ['La comida ya <em>está</em> lista, podemos cenar.','The food is already ready, we can eat dinner.'],
+              ['¿<em>Estás</em> listo para ejecutar la siguiente fase?','Are you ready to execute the next phase?'],
+              ['Hoy <em>estoy</em> un poco cansado por el viaje.','Today I am a little tired from the trip.'],
+              ['El mercado <em>está</em> cambiando rápidamente en este momento.','The market is changing rapidly right now.']
+            ]
+          },
+          s3: {
+            title: 'Acciones en Progreso (Gerundio)',
+            data: [
+              ['Yo <em>estoy</em> trabajando desde casa esta semana.','I am working from home this week.'],
+              ['¿Qué <em>estás</em> haciendo con ese script?','What are you doing with that script?'],
+              ['Nosotros <em>estamos</em> enfocados en optimizar el tiempo.','We are focused on optimizing time.'],
+              ['Ellos <em>están</em> analizando las métricas del portafolio.','They are analyzing the portfolio metrics.']
+            ]
+          }
+        }
+      },
+      tener: {
+        title: 'Tener',
+        color: 'var(--purple)',
+        sections: {
+          s1: {
+            title: 'Posesión y Edad',
+            data: [
+              ['<em>Tengo</em> un sistema personalizado para monitorear el progreso.','I have a customized system to monitor progress.'],
+              ['¿Cuántos años <em>tienes</em>? Tengo treinta y siete años.','How old are you? I am thirty-seven years old.'],
+              ['Él <em>tiene</em> toda la información en su computadora.','He has all the information on his computer.'],
+              ['¿<em>Tienes</em> los números exactos del trimestre pasado?','Do you have the exact numbers from last quarter?']
+            ]
+          },
+          s2: {
+            title: 'Sensaciones Físicas/Estados',
+            data: [
+              ['Tengo prisa porque la reunión empieza pronto.','I am in a hurry because the meeting starts soon.'],
+              ['¿No tienes frío con esa ventana abierta?','Aren\'t you cold with that window open?'],
+              ['Ella <em>tiene</em> una mentalidad muy disciplinada para los negocios.','She has a very disciplined mindset for business.'],
+              ['Tenemos mucha suerte de contar con este recurso.','We are very lucky to have this resource.']
+            ]
+          },
+          s3: {
+            title: 'Obligación (Tener que + Inf)',
+            data: [
+              ['<em>Tengo</em> que revisar mis inversiones esta noche.','I have to review my investments tonight.'],
+              ['¿Qué <em>tienes</em> que hacer mañana por la mañana?','What do you have to do tomorrow morning?'],
+              ['Nosotros <em>tenemos</em> que diversificar los esfuerzos esta semana.','We have to diversify our efforts this week.'],
+              ['Tienes que practicar todos los días para ver resultados.','You have to practice every day to see results.']
+            ]
+          }
+        }
+      },
+      querer: {
+        title: 'Querer',
+        color: 'var(--pink)',
+        sections: {
+          s1: {
+            title: 'Deseos y Planes Futuros',
+            data: [
+              ['<em>Quiero</em> construir algo que dure por generaciones.','I want to build something that lasts for generations.'],
+              ['¿Qué <em>quieres</em> lograr con este proyecto de código?','What do you want to achieve with this code project?'],
+              ['Nosotros <em>queremos</em> viajar a Chile a finales de mayo.','We want to travel to Chile at the end of May.'],
+              ['Quiero aprender español para comunicarme con fluidez.','I want to learn Spanish to communicate fluently.']
+            ]
+          },
+          s2: {
+            title: 'Peticiones y Transacciones',
+            data: [
+              ['Quiero la cuenta, por favor, cuando tenga un momento.','I want the check, please, when you have a moment.'],
+              ['¿<em>Quieres</em> revisar los detalles del contrato conmigo?','Do you want to review the contract details with me?'],
+              ['Quiero comprar este libro físico para mi colección.','I want to buy this physical book for my collection.'],
+              ['Nosotros <em>queremos</em> mitigar el riesgo lo más posible.','We want to mitigate risk as much as possible.']
+            ]
+          }
+        }
+      },
+      hacer: {
+        title: 'Hacer',
+        color: 'var(--amber)',
+        sections: {
+          s1: {
+            title: 'Acciones Generales y Trabajo',
+            data: [
+              ['Yo <em>hago</em> un análisis profundo antes de comprometerme.','I do a deep analysis before committing.'],
+              ['¿Qué <em>haces</em> los fines de semana para desconectar?','What do you do on weekends to disconnect?'],
+              ['Él <em>hace</em> todos los reportes usando scripts de Python.','He makes all the reports using Python scripts.'],
+              ['Cada pequeño hábito <em>hace</em> una gran diferencia al final.','Every small habit makes a big difference in the end.']
+            ]
+          },
+          s2: {
+            title: 'Tiempo Transcurrido (Hace + Tiempo)',
+            data: [
+              ['<em>Hace</em> varios meses que comencé este plan de estudio.','It has been several months since I started this study plan.'],
+              ['Hace dos años que compré mi moto Vespa.','It has been two years since I bought my Vespa scooter.'],
+              ['¿Cuánto tiempo hace que trabajas en esta empresa?','How long has it been since you worked at this company?']
+            ]
+          }
+        }
+      }
+    };
+
+    const RIZZ = {
+      s1: {
+        title: 'Abrir / Romper Hielo',
+        data: [
+          ['Hola, no suelo hacer esto, pero quería presentarme.','Hi, I don\'t usually do this, but I wanted to introduce myself.'],
+          ['Hola, me llamó la atención tu enfoque. ¿<em>Eres</em> de Nueva York?','Hi, your focus caught my eye. Are you from New York?'],
+          ['No suelo interrumpir, pero <em>tienes</em> una presencia increíble.','I don\'t usually interrupt, but you have an incredible presence.'],
+          ['¿<em>Estás</em> trabajando en algo interesante o solo descansando?','Are you working on something interesting or just relaxing?'],
+          ['Qué buen estilo tienes, me dio curiosidad venir a saludarte.','You have great style, I was curious to come say hello.']
+        ]
+      },
+      s2: {
+        title: 'Cumplido Elegante / Calibrado',
+        data: [
+          ['Me gusta tu energía, te ves como alguien muy enfocada.','I like your energy, you look like someone very focused.'],
+          ['Tienes un gusto excelente para los libros, ese es un clásico.','You have excellent taste in books, that one is a classic.'],
+          ['Se nota que cuidas mucho tus proyectos y tu espacio.','It shows that you take great care of your projects and space.']
+        ]
+      },
+      s3: {
+        title: 'La Propuesta / El Cierre',
+        data: [
+          ['Me tengo que ir, pero me gustaría seguir hablando contigo.','I have to go, but I would like to keep talking to you.'],
+          ['¿Intercambiamos números y nos tomamos un café esta semana?','Shall we exchange numbers and grab a coffee this week?'],
+          ['Pásame tu contacto, si estás libre coordinamos algo casual.','Give me your contact info, if you\'re free we\'ll arrange something casual.']
+        ]
+      },
+      s4: {
+        title: 'Mantener la Chispa',
+        data: [
+          ['Me interesa saber, ¿qué <em>es</em> lo que más te apasiona?','I\'m interested to know, what are you most passionate about?'],
+          ['¿<em>Eres</em> una persona de planes estructurados o prefieres fluir?','Are you a person of structured plans or do you prefer to flow?'],
+          ['Me gusta que se pueda hablar contigo de cosas reales.','I like that one can talk with you about real things.'],
+          ['Qué buena conversación, hacía tiempo que no hablaba así con alguien.','Great conversation, it\'s been a while since I talked to someone like this.']
+        ]
+      },
+      s5: {
+        title: 'Salidas de Emergencia / Respeto',
+        data: [
+          ['No te preocupes, entiendo perfectamente. Que tengas un buen día.','Don\'t worry, I completely understand. Have a great day.'],
+          ['Gracias por la honestidad, se valora mucho. Cuídate.','Thanks for the honesty, it\'s much appreciated. Take care.'],
+          ['Fue un placer saludarte de todos modos, que estés muy bien.','It was a pleasure to greet you anyway, wish you all the best.']
+        ]
+      }
+    };
+
+    // ══════════════════════════════════════════
+    // PERSISTENCE & CONTEXT STATE MACHINE
+    // ══════════════════════════════════════════
+    let currentMode = 'verbs';
+    let currentVerb = 'ser';
+    let showTransV = true;
+    let showTransR = true;
+    let learnedV = new Set(JSON.parse(localStorage.getItem('learnedV')) || []);
+    let learnedR = new Set(JSON.parse(localStorage.getItem('learnedR')) || []);
+    let rizzFilter = 'all';
+    let quizPool = [];
+    let quizIdx = 0;
+    let quizIsVerb = true;
+    let quizDirection = 'SP_EN'; // 'SP_EN' (Read Spanish) or 'EN_SP' (Produce Spanish)
+
+    // ══════════════════════════════════════════
+    // UI CORE LOGIC & INITIALIZATION
+    // ══════════════════════════════════════════
+    function init() {
+      switchMainMode('verbs');
+      updateStats();
+    }
+
+    function switchMainMode(mode) {
+      currentMode = mode;
+      document.getElementById('tab-verbs').classList.toggle('active', mode === 'verbs');
+      document.getElementById('tab-rizz').classList.toggle('active', mode === 'rizz');
+      renderSubTabs();
+      renderCards();
+    }
+
+    function renderSubTabs() {
+      const container = document.getElementById('subTabsContainer');
+      container.innerHTML = '';
+      
+      if (currentMode === 'verbs') {
+        Object.keys(VERBS).forEach(vKey => {
+          const btn = document.createElement('div');
+          btn.className = `sub-tab ${currentVerb === vKey ? 'active' : ''}`;
+          btn.textContent = VERBS[vKey].title;
+          btn.onclick = () => { currentVerb = vKey; renderSubTabs(); renderCards(); };
+          container.appendChild(btn);
+        });
+      } else {
+        const btnAll = document.createElement('div');
+        btnAll.className = `sub-tab ${rizzFilter === 'all' ? 'active' : ''}`;
+        btnAll.textContent = 'Todos';
+        btnAll.onclick = () => { rizzFilter = 'all'; renderSubTabs(); renderCards(); };
+        container.appendChild(btnAll);
+
+        Object.keys(RIZZ).forEach(sKey => {
+          const btn = document.createElement('div');
+          btn.className = `sub-tab ${rizzFilter === sKey ? 'active' : ''}`;
+          btn.textContent = RIZZ[sKey].title;
+          btn.onclick = () => { rizzFilter = sKey; renderSubTabs(); renderCards(); };
+          container.appendChild(btn);
+        });
+      }
+    }
+
+    function renderCards() {
+      const grid = document.getElementById('cardGrid');
+      grid.innerHTML = '';
+
+      if (currentMode === 'verbs') {
+        const verbData = VERBS[currentVerb];
+        Object.keys(verbData.sections).forEach(sKey => {
+          const section = verbData.sections[sKey];
+          section.data.forEach(item => {
+            grid.appendChild(createCardElement(item[0], item[1], verbData.color, learnedV, 'verb'));
+          });
+        });
+      } else {
+        Object.keys(RIZZ).forEach(sKey => {
+          if (rizzFilter !== 'all' && rizzFilter !== sKey) return;
+          RIZZ[sKey].data.forEach(item => {
+            grid.appendChild(createCardElement(item[0], item[1], 'var(--accent)', learnedR, 'rizz'));
+          });
+        });
+      }
+    }
+
+    function createCardElement(sp, en, col, storageSet, type) {
+      const card = document.createElement('div');
+      card.className = `card ${storageSet.has(sp) ? 'learned' : ''}`;
+      card.style.setProperty('--em-color', col);
+      
+      const showBlur = type === 'verb' ? !showTransV : !showTransR;
+      
+      card.innerHTML = `
+        <div class="badge"></div>
+        <div class="card-sp">${sp}</div>
+        <div class="card-en ${showBlur ? 'blur' : ''}">${en}</div>
+      `;
+      
+      card.onclick = (e) => {
+        if (e.target.classList.contains('card-en') && e.target.classList.contains('blur')) {
+          e.target.classList.remove('blur');
+          return;
+        }
+        if (storageSet.has(sp)) {
+          storageSet.delete(sp);
+          card.classList.remove('learned');
+        } else {
+          storageSet.add(sp);
+          card.classList.add('learned');
+        }
+        updateStats();
+      };
+      return card;
+    }
+
+    function toggleTranslations() {
+      if (currentMode === 'verbs') showTransV = !showTransV;
+      else showTransR = !showTransR;
+      renderCards();
+    }
+
+    function updateStats() {
+      const totalCount = learnedV.size + learnedR.size;
+      document.getElementById('learnedCount').textContent = totalCount;
+      
+      // Calculate global pool boundaries
+      let maxItems = 0;
+      Object.keys(VERBS).forEach(v => Object.keys(VERBS[v].sections).forEach(s => maxItems += VERBS[v].sections[s].data.length));
+      Object.keys(RIZZ).forEach(s => maxItems += RIZZ[s].data.length);
+      
+      const pct = maxItems > 0 ? (totalCount / maxItems) * 100 : 0;
+      document.getElementById('progressBar').style.width = `${pct}%`;
+
+      // Save arrays permanently down to localStorage
+      localStorage.setItem('learnedV', JSON.stringify([...learnedV]));
+      localStorage.setItem('learnedR', JSON.stringify([...learnedR]));
+    }
+
+    // ══════════════════════════════════════════
+    // BI-DIRECTIONAL REVERSE QUIZ ENGINE
+    // ══════════════════════════════════════════
+    function startQuiz() {
+      quizPool = [];
+      quizIdx = 0;
+      quizIsVerb = (currentMode === 'verbs');
+
+      // Populate targeted pool items
+      if (quizIsVerb) {
+        const verbData = VERBS[currentVerb];
+        Object.keys(verbData.sections).forEach(sKey => {
+          verbData.sections[sKey].data.forEach(item => quizPool.push({sp: item[0], en: item[1]}));
+        });
+      } else {
+        Object.keys(RIZZ).forEach(sKey => {
+          if (rizzFilter !== 'all' && rizzFilter !== sKey) return;
+          RIZZ[sKey].data.forEach(item => quizPool.push({sp: item[0], en: item[1]}));
+        });
+      }
+
+      if (quizPool.length === 0) return;
+      
+      // Dynamic Shuffler
+      quizPool.sort(() => Math.random() - 0.5);
+      
+      // Bi-Directional Direction Selection
+      quizDirection = confirm("¿Quieres activar el modo reverso?\n\n(Aceptar = Inglés a Español)\n(Cancelar = Español a Inglés)") ? 'EN_SP' : 'SP_EN';
+      
+      const titleStr = quizIsVerb ? VERBS[currentVerb].title.toUpperCase() : 'RIZZ CONVERSACIONAL';
+      document.getElementById('quizLabel').textContent = `QUIZ: ${titleStr} ${quizDirection === 'EN_SP' ? '(REVERSO)' : ''}`;
+      document.getElementById('quizTotal').textContent = quizPool.length;
+      
+      showQuizCard();
+      document.getElementById('quizOverlay').classList.add('active');
+    }
+
+    function showQuizCard() {
+      if (quizIdx >= quizPool.length) { closeQuiz(); return; }
+      const q = quizPool[quizIdx];
+      const pEl = document.getElementById('quizSpanish');
+      const tEl = document.getElementById('quizEnglish');
+      
+      if (quizDirection === 'SP_EN') {
+        pEl.innerHTML = q.sp;
+        tEl.textContent = q.en;
+        tEl.className = "quiz-en blur";
+      } else {
+        pEl.innerHTML = q.en;
+        tEl.innerHTML = q.sp.replace(/<\/?[^>]+(>|$)/g, ""); // Strip highlighting inside flash answers
+        tEl.className = "quiz-en blur";
+      }
+      
+      document.getElementById('quizIdx').textContent = quizIdx + 1;
+    }
+
+    function revealQuiz() {
+      document.getElementById('quizEnglish').classList.remove('blur');
+      const q = quizPool[quizIdx];
+      if (q) {
+        if (quizIsVerb) learnedV.add(q.sp);
+        else learnedR.add(q.sp);
+        updateStats();
+        
+        // Dynamic card view syncing
+        const cardElements = document.querySelectorAll('.card');
+        cardElements.forEach(card => {
+          if (card.querySelector('.card-sp').innerHTML === q.sp) {
+            card.classList.add('learned');
+          }
+        });
+      }
+    }
+
+    function nextQuizCard() {
+      quizIdx++;
+      showQuizCard();
+    }
+
+    function closeQuiz() {
+      document.getElementById('quizOverlay').classList.remove('active');
+      renderCards();
+    }
+
+    window.onload = init;
+  </script>
+</body>
+</html>
